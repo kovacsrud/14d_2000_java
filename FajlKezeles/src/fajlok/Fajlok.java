@@ -97,6 +97,29 @@ public class Fajlok {
 			System.out.println(h.getNev()+","+h.getOsztaly()+","+h.getMulasztottorak());
 		}
 		
+		//Készítsünk statisztikát arról, hogy az egyes osztályok
+		//hányszor szerepelnek az adatok között
+		//9a-12
+		//9b-25
+		//...
+		HashMap<String, Integer> maphianyzas=new HashMap<String, Integer>();
+		
+		for (Hianyzo h : hianyzok) {
+			
+			if (maphianyzas.containsKey(h.getOsztaly())) {
+				maphianyzas.put(h.getOsztaly(), maphianyzas.get(h.getOsztaly())+1);
+			} else {
+				maphianyzas.put(h.getOsztaly(),1);
+			}
+			
+		}
+		
+		for (Entry<String,Integer> e: maphianyzas.entrySet()) {
+			System.out.println(e.getKey()+":"+e.getValue());
+		}
+		
+		//Módosítsa úgy, hogy a hiányzások összege legyen a szótárban
+		//tárolva!
 		
 	}
 
